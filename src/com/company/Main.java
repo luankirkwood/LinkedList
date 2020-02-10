@@ -14,8 +14,11 @@ public class Main {
         list.addToList("three");
         list.addToList("four");
         list.addToList("five");
-        list.addToList("this is a value at a certain");
+        list.addToList("six");
         list.addToList("seven");
+        list.addToList("look at me");
+        list.addToList("I finally did it");
+        list.addToList("even though it took me forever");
 
         System.out.println("Finding if the list contains the value...");
         if (list.listContains("three")) {
@@ -25,9 +28,8 @@ public class Main {
         }
 
         System.out.println("Deleting node...");
-//        list.deleteNode(4);
+        list.deleteNode(3);
 
-        System.out.println("Trying to find the node at this index");
         System.out.println("Node value at this index ");
         list.findInList(1);
         System.out.println(Arrays.toString(list.listOfNodes()));

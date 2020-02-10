@@ -5,8 +5,8 @@ public class Node {
     String nodeValue;
     Node nextNode;
     static int counter;
-    static int newCounter;
-    static int listCounter;
+    static int findCounter;
+    static int lengthCounter = 0;
 
     public void setNextNode(Node updatedNode) {
         this.nextNode = updatedNode;
@@ -57,39 +57,50 @@ public class Node {
             return "There is no node with this value";
         }
 
-        else if (newCounter == index){
+        else if (findCounter == index){
             System.out.println(this.nodeValue);
         }
 
         else{
-            newCounter++;
+            findCounter++;
             nextNode.findInList(index);
         }
 
         return "node value cannot be found";
     }
 
-    public String[] listOfNodes() {
+    public int getLength() {
 
-        int n = 0;
-        String[] arrayOfNodes = new String[n];
+        if (this.nodeValue != null){
 
-        //count how many items in the "linked list", n
-        //create array of size n
-
-        if (nextNode != null){
-            listCounter++;
+            lengthCounter++;
         }
 
-//        if (firstNode.getLastNode() != null){
-//            listCounter++;
-//
-//        }
-//        else if (firstNode.getLastNode() == null){
-//            n = listCounter;
-//
-//            List<String> nodes = new ArrayList<>(Arrays.asList(arrayOfNodes));
-//        }
-        return arrayOfNodes;
+        if (this.nextNode == null){
+            return lengthCounter;
+        }
+        else {
+            nextNode.getLength();
+        }
+
+        return lengthCounter;
     }
+
+//    public String [] makeIntoList(Node node){
+//
+//        String[] arrayOfNodes = new String[1];
+//        List<String> nodes = new ArrayList<>(Arrays.asList(arrayOfNodes));
+//
+//        for (int i = 0; i < arrayOfNodes.length; i++){
+//
+//            if (this.nodeValue != null) {
+//                nodes.add(nodeValue);
+//
+//                i++;
+//            }
+//        }
+//
+//
+//       return arrayOfNodes;
+//    }
 }

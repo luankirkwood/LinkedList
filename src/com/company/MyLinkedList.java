@@ -1,9 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class MyLinkedList {
 
     private Node firstNode = null;
@@ -32,7 +28,37 @@ public class MyLinkedList {
         firstNode.findInList(index);
     }
 
-    public String[] listOfNodes(){
-        return firstNode.listOfNodes();
+    public void getLength() {
+        firstNode.getLength();
+    }
+
+    public String[] listOfNodes() {
+
+        int n = firstNode.getLength();
+        String[] arrayOfNodes = new String[n];
+
+        Node nodeBeingChecked = firstNode;
+
+        for (int i = 0; i <= n; i++){
+
+            if (nodeBeingChecked == null){
+                return arrayOfNodes;
+            }
+
+            if (nodeBeingChecked.nextNode == null){
+
+                arrayOfNodes[i] = nodeBeingChecked.nodeValue;
+
+                return arrayOfNodes;
+            }
+
+            else {
+                arrayOfNodes[i] = nodeBeingChecked.nodeValue;
+
+                nodeBeingChecked = nodeBeingChecked.nextNode;
+            }
+        }
+
+        return arrayOfNodes;
     }
 }
